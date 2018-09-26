@@ -1,9 +1,9 @@
 <template>
     <div class="login">
         <h3>Sign In</h3>
-        <input type="text" placeholder="Email">
-        <input type="password" placeholder="password">
-        <button>Connection</button>
+        <input type="text" placeholder="Email"><br />
+        <input type="password" placeholder="password"><br />
+        <button>Connection</button>      
         <p>You don't have an account ? You can create one</p>
     </div>
 
@@ -19,6 +19,26 @@
     }
 </script>
 
-<style scoped>
-   /* "scoped" attribute limit the CSS to this component only */ 
+<style scoped>  /* "scoped" attribute limit the CSS to this component only */
+  .login {
+    margin-top: 40px;
+  }
+  input {
+    margin: 10px 0;
+    width: 20%;
+    padding: 15px;
+  }
+  button {
+    margin-top: 20px;
+    width: auto;
+    cursor: pointer;
+  }
+  p {
+    margin-top: 40px;
+    font-size: 13px;
+  }
+  p a {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 </style>
