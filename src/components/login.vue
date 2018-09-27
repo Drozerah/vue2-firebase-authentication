@@ -23,13 +23,18 @@
             login: function () {
                 this.$router.replace('hello')
             },
-            SignIn: function (){       
+            SignIn: function (){
+                // pass in 'this' to firebase.auth()
+                const self = this          
                 firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
                     function (onResolve) {
                         alert('Well done ! You are now connected')
                     },
                     function (error) {
                         alert('Oops. ' + error.message)
+                        // reset placeholders
+                        self.email = ''
+                        self.password = ''
                     }
                 )
             }
