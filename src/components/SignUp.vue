@@ -29,8 +29,8 @@
                             alert('Your account has been created !')
 
                         },
-                        function (onReject) {
-                            alert('Oops. ' + err.message) 
+                        function (error) {
+                            alert('Oops. ' + error.message) 
                         }
                     )
 
