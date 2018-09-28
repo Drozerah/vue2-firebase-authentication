@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Hello from '@/components/Hello'
 import Login from '@/components/login'
 import SignUp from '@/components/SignUp'
+import firebase from 'firebase'
 
 Vue.use(Router)
 
@@ -35,6 +36,27 @@ let router = new Router({
       }
     }
   ]
+})
+
+// global navigation guard 
+ router.beforeEach((to, from, next) => {
+  // get the meta field state of the path 
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  // get current user authentication state 
+  const currentUser = firebase.auth().currentUser;
+
+  // navigation rules set up  
+  // if the route we navigate to requires authentication and there is 
+    // no current user logged in, we redirect to the Login view.
+  if (requiresAuth && !currentUser) {
+    next('login')
+  // else if the route we navigate to does not require authentication and 
+    // there is a user logged in, we redirect to the Hello view.
+  } else if (!requiresAuth && currentUser) {
+    next('hello')
+  }
+  // else proceed navigation
+  else next()
 })
 
 export default router
