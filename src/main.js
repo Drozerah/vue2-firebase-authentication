@@ -8,12 +8,22 @@ const firebaseData = require("../config/fire-base-config.js");
 
 Vue.config.productionTip = false
 
+// init firebase
 firebase.initializeApp(firebaseData.config);
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router,
-  components: { App },
-  template: '<App/>'
-})
+// handle page reloads
+let app
+firebase.auth().onAuthStateChanged(function(user) {
+
+    if (!app) {
+
+        /* eslint-disable no-new */
+        // init app
+        app = new Vue({
+            el: '#app',
+            router,
+            components: { App },
+            template: '<App/>'
+        })
+    }
+});
