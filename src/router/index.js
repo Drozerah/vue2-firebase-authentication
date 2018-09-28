@@ -6,7 +6,7 @@ import SignUp from '@/components/SignUp'
 
 Vue.use(Router)
 
-export default new Router({
+let router = new Router({
   routes: [
     {
       path: '*', // catch every paths that does not exist then   
@@ -36,3 +36,5 @@ export default new Router({
     }
   ]
 })
+
+export default router
