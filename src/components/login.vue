@@ -6,7 +6,6 @@
         <button @click='SignIn'>Connection</button>      
         <p>You don't have an account ? You can <router-link to="/sign-up">create one</router-link></p>
     </div>
-
 </template>
 
 <script>
@@ -21,14 +20,12 @@
             }
         },
         methods: {
-            login: function () {
-                // redirection
-                this.$router.replace('hello')
-            },
             SignIn: function (){       
                 firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
                     (onResolve) => {
                         alert('Well done ! You are now connected')
+                        // redirection
+                        this.$router.replace('hello')
                     },
                     (error) => {
                         alert('Oops. ' + error.message)
