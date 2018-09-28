@@ -9,19 +9,27 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/hello',
-      name: 'Hello',
-      component: Hello
+      path: '*', // catch every paths that does not exist then   
+      redirect: '/login', // redirect to the login path  
     },
     {
-      path: '/login',
-      name: 'Login',
-      component: Login
+      path: '/', // catch the root path then   
+      redirect: '/login', // redirect to the login path  
     },
     {
-      path: '/sign-up',
-      name: 'SignUp',
-      component: SignUp
+      path: '/hello', // set the URL the user will visit if logged in
+      name: 'Hello', // use this name as a shortcut in links
+      component: Hello // load the Hello component
+    },
+    {
+      path: '/login', // set the URL where the user to log in
+      name: 'Login', // use this name as a shortcut in links
+      component: Login // load the Hello component
+    },
+    {
+      path: '/sign-up', // set the URL where the user to sign up
+      name: 'SignUp', // use this name as a shortcut in links
+      component: SignUp // load the SignUp component
     }
   ]
 })
