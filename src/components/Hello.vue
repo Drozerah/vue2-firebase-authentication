@@ -85,11 +85,22 @@
 </template>
 
 <script>
+import firebase from 'firebase';
+
 export default {
   name: 'Hello',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  methods: {
+    logout: function(){
+      firebase.auth().signOut().then(() => {
+        // redirection
+        this.$router.replace('login')
+
+      })
     }
   }
 }
