@@ -27,6 +27,8 @@
                 .then(
                 (onResolve) => {
                     alert("Your account has been created !");
+                    // redirection
+                    this.$router.replace('hello')
                 },
                 (error) => {
                     alert("Oops. " + error.message);
