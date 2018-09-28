@@ -80,6 +80,7 @@
         </a>
       </li>
     </ul>
+    <button @click="logout">Logout</button>
   </div>
 </template>
 
@@ -109,5 +110,16 @@ li {
 }
 a {
   color: #42b983;
+}
+
+button {
+  padding: 10px 20px;
+  background: #42b983;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 22px;
+  outline: 0;
+  cursor: pointer;
 }
 </style>
