@@ -10,7 +10,8 @@
 </template>
 
 <script>
-    import firebase from 'firebase'   
+    import firebase from 'firebase'
+
     export default {
         name: 'login',
         data: function () {
@@ -21,20 +22,19 @@
         },
         methods: {
             login: function () {
+                // redirection
                 this.$router.replace('hello')
             },
-            SignIn: function (){
-                // pass in 'this' to firebase.auth()
-                const self = this          
+            SignIn: function (){       
                 firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
-                    function (onResolve) {
+                    (onResolve) => {
                         alert('Well done ! You are now connected')
                     },
-                    function (error) {
+                    (error) => {
                         alert('Oops. ' + error.message)
                         // reset placeholders
-                        self.email = ''
-                        self.password = ''
+                        this.email = ''
+                        this.password = ''
                     }
                 )
             }
